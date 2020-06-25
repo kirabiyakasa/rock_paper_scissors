@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Rock, Paper, Scissors</title>
+  <meta charset="UTF-8"/>
+</head>
+<body>
+  <script>
+    function computerPlay() {
+       let getNumber = Math.floor(Math.random() * 3)
+         if (getNumber == 0) {
+           return 'Rock'
+       } else if (getNumber == 1) {
+           return 'Paper'
+       } else {
+           return 'Scissors'
+       }
+    }
+
+     let computerScore = 0
+     let playerScore = 0
+
+      
+      function playRound(playerSelection, computerSelection) {
+
+        if (playerSelection.toUpperCase() === 'ROCK' && computerSelection.toUpperCase() === 'PAPER') {
+          ++computerScore;
+          return 'You Lose! Paper beats Rock'
+        } else if (playerSelection.toUpperCase() === 'PAPER' && computerSelection.toLocaleUpperCase() === 'SCISSORS') {
+          ++computerScore;
+          return 'You Lose! Scissors beats Paper'
+        } else if (playerSelection.toUpperCase() === 'SCISSORS' && computerSelection.toLocaleUpperCase() === 'ROCK') {
+          ++computerScore;
+          return 'You Lose! Rock beats Scissors'
+        } else if (playerSelection.toUpperCase() === 'ROCK' && computerSelection.toUpperCase() === 'SCISSORS') {
+          return 'You Win! Rock beats Scissors'
+        } else if (playerSelection.toUpperCase() === 'PAPER' && computerSelection.toUpperCase() === 'ROCK') {
+          return 'You Win! Paper beats Rock'
+          ++playerScore
+        } else if (playerSelection.toUpperCase() === 'SCISSORS' && computerSelection.toUpperCase() === 'PAPER') {
+          ++playerScore;
+          return 'You Win!'
+          ++playerScore
+        } else if (playerSelection.toUpperCase() === 'ROCK' && computerSelection.toUpperCase() === 'ROCK') {
+          return 'Tie! Rock and Rock cancel out' 
+        } else if (playerSelection.toUpperCase() === 'PAPER' && computerSelection.toUpperCase() === 'PAPER') {
+          return 'Tie! Paper and Paper cancel out'
+        } else if (playerSelection.toUpperCase() === 'SCISSORS' && computerSelection.toUpperCase() === 'SCISSORS') {
+          return 'Tie! Scissors and Scissors cancel out'
+        } else {
+          return "Invalid input"
+        }
+      }
+      
+
+  function scoring() {
+    console.log (`Score = Player Score: ${playerScore} Computer Score: ${computerScore}`)
+      if (playerScore > computerScore) {
+      console.log('You win the game!')
+    } else if (computerScore > playerScore) {
+      console.log('Computer wins the game!')
+    } else {
+      console.log('Draw! Play again')
+    }
+  }
+
+  function game() {
+    
+    function playGame() {
+    const playerSelection = prompt();
+    const computerSelection = computerPlay();
+    console.log(playRound(playerSelection, computerSelection))
+    }
+
+    for (let i = 0; computerScore < 5 && playerScore < 5; i++) {
+    playGame()
+  } 
+  console.log(scoring())
+  }
+
+  function reset() {
+    computerScore = 0
+    playerScore = 0 
+    game()
+  }
+
+
+  </script>
+</body>
+</html>
