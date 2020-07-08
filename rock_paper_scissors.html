@@ -3,159 +3,68 @@
 <head>
   <title>Rock, Paper, Scissors</title>
   <meta charset="UTF-8"/>
+  <link rel='stylesheet' type='text/css' href='style.css'>
 </head>
 <body>
+  <div id='main-container'>
+    <header>Rock, Paper, Scissors</header>
 
-  <div id='game-results'></div>
+    <div id='img-container'>
+      <div id="player-choice-image">
+        <div class='game-text'>Player</div>
+        <img id='rock-icon-player' class='game-icons'
+        src='Rock-595b40b85ba036ed117da97f.svg'
+        style='display: none;'>
+        <img id='paper-icon-player' class='game-icons'
+        src='Paper-595b40b85ba036ed117da7a9.svg'
+        style="display: none;">
+        <img id='scissors-icon-player' class='game-icons'
+        src='Surgical Scissors-595b40b85ba036ed117dabb4.svg'
+        style="display: none;">
+      </div>
 
-  <div id='roundResults'></div>
+      <div id='arrow-image'>
+        <img id='green-arrow' src='svg-green-circle-right-arrow-icon-1.svg'
+        style="display: none;">
+        <img id='red-arrow' src='svg-red-circle-left-arrow-icon-1.svg'
+        style='display: none;'>
+      </div>
 
-  <div id='player-scoring'>Player Score: 0</div>
-  <div id='computer-scoring'>Computer Score: 0</div>
+      <div id="computer-choice-image">
+        <div class='game-text'>Computer</div>
+        <img id='rock-icon-computer' class='game-icons'
+        src='Rock-595b40b85ba036ed117da97f.svg'
+        style="display: none;">
+        <img id='paper-icon-computer' class='game-icons'
+        src='Paper-595b40b85ba036ed117da7a9.svg'
+        style='display: none;'>
+        <img id='scissors-icon-computer' class='game-icons'
+        src='Surgical Scissors-595b40b85ba036ed117dabb4.svg'
+        style="display: none;">
+      </div>
+    </div> 
 
-  <button id='choose-rock' style='display: inline;'>Rock</button>
-  <button id='choose-paper' style='display: inline;'>Paper</button>
-  <button id='choose-scissors' style='display: inline;'>Scissors</button>
+    <div id='round-results'></div>
 
-  <button id='play-again' style='display: none;'>Play Again</button>
+    <div id='scoring-container'>
+      <div id='player-scoring'>Player Score: 0</div>
+      <div id='computer-scoring'>Computer Score: 0</div>
+    </div>
 
+    <div id='button-container'>
+      <button id='choose-rock' class='player-buttons' 
+      style='display: inline;'>Rock</button>
+      <button id='choose-paper' class='player-buttons' 
+      style='display: inline;'>Paper</button>
+      <button id='choose-scissors' class='player-buttons' 
+      style='display: inline;'>Scissors</button>
 
-  <script>
-    function computerPlay() {
-      let number = Math.floor(Math.random() * 3);
-        if (number == 0) {
-        return 'Rock';
-      } else if (number == 1) {
-        return 'Paper';
-      } else {
-        return 'Scissors';
-      }
-    }
+      <button id='play-again' style='display: none;'>Play Again</button>
+    </div>
 
-    let computerScore = 0;
-    let playerScore = 0;
-    let playerSelection;
- 
-    function playRound(playerSelection, computerSelection) {
-      if (playerSelection.toUpperCase() === 'ROCK' && 
-            computerSelection.toUpperCase() === 'PAPER'||
-            playerSelection.toUpperCase() === 'PAPER' && 
-            computerSelection.toUpperCase() === 'SCISSORS'||
-            playerSelection.toUpperCase() === 'SCISSORS' && 
-            computerSelection.toUpperCase() === 'ROCK') {
-        ++computerScore;
-        document.getElementById("roundResults").innerHTML = 
-        `You Lose! ${computerSelection} beats ${playerSelection}`;
-      } else if (playerSelection.toUpperCase() === 'ROCK' && 
-            computerSelection.toUpperCase() === 'SCISSORS' ||
-            playerSelection.toUpperCase() === 'PAPER' && 
-            computerSelection.toUpperCase() === 'ROCK' ||
-            playerSelection.toUpperCase() === 'SCISSORS' && 
-            computerSelection.toUpperCase() === 'PAPER') {
-        ++playerScore;
-        document.getElementById("roundResults").innerHTML =
-         `You Win! ${playerSelection} beats ${computerSelection}`;
-      } else if (playerSelection.toUpperCase() === 'ROCK' && 
-            computerSelection.toUpperCase() === 'ROCK' ||
-            playerSelection.toUpperCase() === 'PAPER' && 
-            computerSelection.toUpperCase() === 'PAPER' ||
-            playerSelection.toUpperCase() === 'SCISSORS' && 
-            computerSelection.toUpperCase() === 'SCISSORS') {
-              document.getElementById("roundResults").innerHTML =
-               `Tie! ${computerSelection} and ${playerSelection} cancel out`; 
-      } else {
-        return "Invalid input";
-      }
-    }
+    <div id='game-results'></div>
+  </div>
 
-    function countPlayerScore() {
-      document.getElementById('player-scoring').innerHTML =
-       'Player Score: ' + playerScore
-    }
-
-    function countComputerScore() {
-      document.getElementById('computer-scoring').innerHTML = 
-      'computer Score: ' + computerScore
-    }
-
-    document.getElementById("choose-rock").addEventListener('click', 
-    function() {
-      playerSelection = 'Rock'
-      const computerSelection = computerPlay();
-      playRound(playerSelection, computerSelection)
-      countPlayerScore()
-      countComputerScore()
-      endGame()
-    })
-    document.getElementById("choose-paper").addEventListener('click', 
-    function() {
-      playerSelection = 'Paper'
-      const computerSelection = computerPlay();
-      playRound(playerSelection, computerSelection)
-      countPlayerScore()
-      countComputerScore()
-      endGame()
-    })
-    document.getElementById("choose-scissors").addEventListener('click', 
-    function() {
-      playerSelection = 'Scissors'
-      const computerSelection = computerPlay();
-      playRound(playerSelection, computerSelection)
-      countPlayerScore()
-      countComputerScore()
-      endGame()
-    })
-
-    function endGame() {
-      let gameResults = document.getElementById('game-results')
-      let playButtons = document.getElementsByClassName('play-buttons')
-      if (playerScore === 5) {
-        document.getElementById('choose-rock').style.display = 'none';
-        document.getElementById('choose-paper').style.display = 'none';
-        document.getElementById('choose-scissors').style.display = 'none';
-        document.getElementById('play-again').style.display = 'inline';
-        document.getElementById('game-results').innerHTML = 
-        'You win the game!'
-      } else if (computerScore === 5) {
-        document.getElementById('choose-rock').style.display = 'none';
-        document.getElementById('choose-paper').style.display = 'none';
-        document.getElementById('choose-scissors').style.display = 'none';
-        document.getElementById('play-again').style.display = 'inline';
-        document.getElementById('game-results').innerHTML = 
-        'Computer wins the game!'
-      }
-    }
-    
-    document.getElementById('play-again').addEventListener('click', 
-    function playAgain() {
-      computerScore = 0;
-      playerScore = 0 ;
-      document.getElementById
-      ('choose-rock').style.display = 'inline';
-      document.getElementById
-      ('choose-paper').style.display = 'inline';
-      document.getElementById
-      ('choose-scissors').style.display = 'inline';
-      document.getElementById('play-again').style.display = 'none';
-      document.getElementById('game-results').innerHTML = ''
-      document.getElementById("roundResults").innerHTML = ''
-      document.getElementById('player-scoring').innerHTML = 'Player Score: 0'
-      document.getElementById('computer-scoring').innerHTML = 'Computer Score: 0'
-    })
-    
-    /* Personal Note: Add a counter with an html element that shows images for 
-    rock, paper and scissors, and increases for each "You Win!" or "You Lose!" */
-  </script>
-  <style>
-    body {
-      background-color: white;
-    }
-    #choose-rock, #choose-paper, #choose-scissors {
-      color: black;
-    }
-    #play-again {
-      color: black;
-    }
-  </style>
+  <script src='rock_paper_scissors.js'></script>
 </body>
 </html>

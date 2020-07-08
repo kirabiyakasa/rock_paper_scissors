@@ -1,0 +1,134 @@
+#main-container {
+  max-width: 1000px;
+  min-width: 700px;
+  overflow: auto;
+  display: inline-block;
+  margin: 100px;
+  margin-top: 10px;
+  border-radius: 10px;
+  background-color: rgb(45, 45, 45);
+  box-shadow: 5px 5px 10px black;
+}
+header {
+  padding-top: 20px;
+  font-size: 35px;
+  color: white;
+  font-family: sans-serif;
+  padding-bottom: 20px;
+  border-style: dotted;
+  border-top: transparent;
+  border-left: transparent;
+  border-right: transparent;
+  border-color: black
+}
+body {
+  text-align: center;
+  background-color: rgb(20, 20, 20);
+}
+#img-container {
+  padding: 20px;
+  display: flex;
+  justify-content: center;
+  margin-top: 60px;
+}
+.game-text {
+  font-size: 35px;
+  margin-bottom: 15px;
+  margin-top: -50px;
+  color: white;
+  font-family: sans-serif;
+}
+#player-choice-image {
+  width: 225px;
+  height: 225px;
+  border-style: solid;
+  border-width: 2px;
+  border-radius: 5px;
+  display: inline-block;
+  margin: 10px;
+  margin-right: 50px;
+  box-shadow: 2px 2px 5px black;
+}
+#arrow-image {
+  width: 100px;
+  height: 100px;
+  margin-top: 75px;
+}
+#computer-choice-image {
+  width: 225px;
+  height: 225px;
+  border-style: solid;
+  border-width: 2px;
+  border-radius: 5px;
+  display: inline-block;
+  margin: 10px;
+  margin-left: 50px;
+  box-shadow: 2px 2px 5px black;
+}
+#round-results {
+  height: 25px;
+  margin-top: 30px;
+  font-size: 35px;
+  font-family: sans-serif;
+  color: white;
+}
+#scoring-container {
+  display: flex;
+  justify-content: center;
+  margin-top: 4em;
+}
+#player-scoring {
+  font-size: 35px;
+  color: white;
+  font-family: sans-serif;
+  margin-left: 25px;
+  margin-right: 35px;
+  margin-bottom: 20px;
+}
+#computer-scoring {
+  font-size: 35px;
+  color: white;
+  font-family: sans-serif;
+  margin-left: 35px;
+  margin-bottom: 20px;
+}
+#button-container {
+  display: flex;
+  justify-content: center;
+  padding-bottom: 20px;
+}
+#choose-rock, #choose-paper, #choose-scissors {
+  font-size: 30px;
+  font-family: sans-serif;
+  height: 50px;
+  width: 150px;
+  margin: 20px;
+  border-radius: 5px;
+  color: black;
+  background-color: lightgrey;
+}
+#choose-rock:hover, #choose-paper:hover, #choose-scissors:hover, 
+#play-again:hover {
+  cursor: pointer;
+  background-color: white;
+}
+#play-again {
+  color: black;
+  background-color: lightgrey;
+  font-size: 25px;
+  font-family: sans-serif;
+  border-radius: 5px;
+  height: 50px;
+  width: 150px;
+}
+#game-results {
+  font-size: 35px;
+  color: white;
+  font-family: sans-serif;
+  padding-bottom: 10px;
+}
+.game-icons {
+  padding: 50px;
+  width: 125px;
+  height: 125px;
+}
