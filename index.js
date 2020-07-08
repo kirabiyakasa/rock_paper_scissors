@@ -29,29 +29,31 @@ function playRound(playerSelection, computerSelection) {
         computerSelection.toUpperCase() === 'SCISSORS'||
         playerSelection.toUpperCase() === 'SCISSORS' && 
         computerSelection.toUpperCase() === 'ROCK') {
-    ++computerScore;
-    document.getElementById('green-arrow').style.display = 'none'
-    document.getElementById('red-arrow').style.display = 'inline'
-    document.getElementById("round-results").innerHTML = 
-    `You Lose! ${computerSelection} beats ${playerSelection}`;
+            ++computerScore;
+            document.getElementById('green-arrow').style.display = 'none'
+            document.getElementById('red-arrow').style.display = 'inline'
+            document.getElementById("round-results").innerHTML = 
+            `You Lose! ${computerSelection} beats ${playerSelection}`;
   } else if (playerSelection.toUpperCase() === 'ROCK' && 
         computerSelection.toUpperCase() === 'SCISSORS' ||
         playerSelection.toUpperCase() === 'PAPER' && 
         computerSelection.toUpperCase() === 'ROCK' ||
         playerSelection.toUpperCase() === 'SCISSORS' && 
         computerSelection.toUpperCase() === 'PAPER') {
-    ++playerScore;
-    document.getElementById('green-arrow').style.display = 'inline'
-    document.getElementById('red-arrow').style.display = 'none'
-    document.getElementById("round-results").innerHTML =
-     `You Win! ${playerSelection} beats ${computerSelection}`;
+            ++playerScore;
+            document.getElementById('green-arrow').style.display = 'inline'
+            document.getElementById('red-arrow').style.display = 'none'
+            document.getElementById("round-results").innerHTML =
+            `You Win! ${playerSelection} beats ${computerSelection}`;
   } else if (playerSelection.toUpperCase() === 'ROCK' && 
         computerSelection.toUpperCase() === 'ROCK' ||
         playerSelection.toUpperCase() === 'PAPER' && 
         computerSelection.toUpperCase() === 'PAPER' ||
         playerSelection.toUpperCase() === 'SCISSORS' && 
         computerSelection.toUpperCase() === 'SCISSORS') {
-          document.getElementById("round-results").innerHTML =
+            document.getElementById('green-arrow').style.display = 'none'
+            document.getElementById('red-arrow').style.display = 'none'
+            document.getElementById("round-results").innerHTML =
            `Tie! ${computerSelection} and ${playerSelection} cancel out`; 
   } else {
     return "Invalid input";
